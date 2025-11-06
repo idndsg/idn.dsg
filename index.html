@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>idn.dsg | Visual Identity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="idndsg.css">-->
+    <link rel="icon" type="image/png" href="LOGO/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#000000',
+                        whiate: '#ffffff',
+                        agreen: '#d1ff6c',
+                        accent1: '#fff5ed',
+                        accent2: '#161413',
+                        accent3: '#cccccc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+   
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+        .portfolio-item {
+            transition: all 0.4s ease;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+        }
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 0 1px #d1ff6c;
+        }
+        .portfolio-overlay {
+            background: rgba(26,26,26,0.85);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+        .contact-input:focus {
+            box-shadow: 0 0 0 2px #d1ff6c;
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        .hamburger-active .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger-active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-active .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    </style>
+    
+</head>
+<body class="bg-dark text-white font-sans overflow-x-hidden">
+    <!-- Header with Navigation -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-dark nav-hidden" id="header">
+        <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+            <div class="logo mt-5 w-40 w-[150px] h-auto"><img src="LOGO/idnlogo.png" alt="logo"></div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8 text-xl mt-8">
+                    <!--
+                    <li><a href="#about" class="text-accent1 hover:text-accent transition-colors duration-300">Project</a></li>
+                    <li><a href="#portfolio" class="text-accent1 hover:text-accent transition-colors duration-300">Contact</a></li>
+                    <li><a href="#services" class="text-white hover:text-accent transition-colors duration-300">Services</a></li>
+                    <li><a href="#contact" class="text-white hover:text-accent transition-colors duration-300">Contact</a></li>
+                    -->
+                </ul>
+            </nav>
+            
+            <!-- Mobile Hamburger -->
+            <button id="hamburger" class="hidden flex flex-col space-y-1.5 z-50">
+                <span class="hamburger-line w-6 h-px bg-white"></span>
+                <span class="hamburger-line w-6 h-px bg-white"></span>
+                <span class="hamburger-line w-6 h-px bg-white"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+         <!-- 
+        <div id="mobile-nav" class="fixed inset-0 bg-dark z-40 flex items-center justify-center transform translate-y-full transition-transform duration-300">
+            <ul class="text-center space-y-8">
+                <li><a href="#about" class="text-2xl text-gray-300 hover:text-accent transition-colors duration-300">About</a></li>
+                <li><a href="#portfolio" class="text-2xl text-gray-300 hover:text-accent transition-colors duration-300">Portfolio</a></li>
+                <li><a href="#services" class="text-2xl text-gray-300 hover:text-accent transition-colors duration-300">Services</a></li>
+                <li><a href="#contact" class="text-2xl text-gray-300 hover:text-accent transition-colors duration-300">Contact</a></li>
+            </ul>
+        </div>
+        -->
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-screen-2xl mx-auto pb-40 pt-60 flex items-center relative">
+        <!--
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-20 right-20 w-64 h-64 rounded-full bg-accent opacity-10 blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-10 left-10 w-80 h-80 rounded-full bg-accent opacity-5 blur-3xl animate-float"></div>
+        </div>
+        -->
+        
+        <div class="container mx-auto flex justify-center px-4 py-20 z-10">
+            <div class="max-w-3xl text-center">
+                <div class=" flex justify-center">
+                <img src="FOTO/idn.png"  alt="" class="rounded-full mb-10 animate-on-scroll w-[100px]">
+                </div>
+                <h1 class="text-4xl md:text-2xl font-regular mb-6 animate-on-scroll text-white">
+                    Crafting Distinctive Visual Identities for Exceptional Brands.
+                </h1>
+                <!--
+                <div class="flex justify-center mt-10 animate-on-scroll">
+                    <a href="#portfolio" class="px-8 py-3 bg-accent1 text-dark font-bold rounded-lg hover:bg-opacity-90 transition-colors duration-300">
+                        Contact
+                    </a>
+                </div>
+            </div>-->
+        </div>
+        
+        <!-- pop up dropdownd -->
+        <!--
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-400 hover:text-accent transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>-->
+    </section>
+
+
+    <!-- GALERY -->
+
+
+    <!-- Grid -->
+     <div class="flex justify-center">
+                <script defer>
+                            function openModal(imageSrc, title, description, extraImages = []) {
+                            // Ganti gambar utama
+                            document.getElementById('modalImage').src = imageSrc;
+
+                            // Ganti judul dan deskripsi
+                            document.getElementById('modalTitle').innerText = title;
+                            document.getElementById('modalDescription').innerHTML = description;
+
+                            // Kosongkan isi sebelumnya
+                            const contentDiv = document.getElementById('modalContent');
+                            contentDiv.innerHTML = '';
+
+                            // Tambahkan gambar tambahan
+                            extraImages.forEach(src => {
+                                const img = document.createElement('img');
+                                img.src = src;
+                                img.className = 'rounded-lg shadow w-full my-4';
+                                contentDiv.appendChild(img);
+                            });
+
+                            // Tampilkan modal
+                            document.getElementById('imageModal').classList.remove('hidden');
+                            }
+
+                            function closeModal() {
+                            document.getElementById('imageModal').classList.add('hidden');
+                            }
+            </script>
+            <script src="https://cdn.tailwindcss.com"></script> <!-- Gunakan jika pakai Tailwind -->
+</head>
+
+<body class="bg-gray-100 p-10">
+    <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-left mb-12">
+                    <h2 class="text-2xl font-light text-agreen">Feature Work</h2>
+                    <!--
+                    <p class="text-gray-400 mt-2">Selected projects & highlights</p> -->
+                    </div>
+
+  <!-- CARD 1 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <!-- CARD Unme  -->
+                 <div class="relative cursor-pointer group"
+                onclick="openModal(
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c79660232529347.689ddb8d5489f.png', 
+                    'Unme', 
+                    `<p style='text-align: jusify;'>
+                    Unme is a trusted workforce distribution solution that connects companies with qualified professionals.
+                    With an innovative, technology-driven approach, we help businesses across various industries find the best
+                    candidates quickly and efficiently.
+                    <br><br>
+                    Our logo symbolizes people at the heart of every service we provide—representing passion, professionalism,
+                    and the connection between job seekers and employers. The strong blue color reflects trust and stability, while
+                    the open shape suggests collaboration and limitless opportunities.
+                    <br><br>
+                    Sebagai mitra strategis, unme berkomitmen untuk memberikan layanan terbaik dalam perekrutan dan penempatan tenaga kerja,
+                    dari lini operasional hingga level manajerial, sesuai dengan kebutuhan spesifik klien kami.
+                    </p>`, 
+                    ['https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a9c898232529347.689ddb8d55aec.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a9c898232529347.689ddb8d55aec.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/fc2418232529347.689ddb8d562cd.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/dcb53a232529347.689ddb8d5687c.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/8a699f232529347.689ddb8d54d52.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f20f79232529347.689ddb8d552cc.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/84aa46232529347.689ddb8d53adb.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/5cd322232529347.689ddb8d542c5.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/beeb30232529347.689ddb8d535bc.png',]
+                    )">
+
+
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c79660232529347.689ddb8d5489f.png" class="rounded-lg w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
+                    <h2 class="text-white text-xl font-bold">unme</h2>
+                    <p class="text-gray-300">Visual Identity</p>
+                </div>
+                </div>
+
+        <!-- CARD Derilect-->
+                    <div class="relative cursor-pointer group"
+                    onclick="openModal(
+                        'https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/d824c2232166843.6896bb0abed5d.png', 
+                        'Derelict', 
+                        `<p style='text:text-align: justify;'>
+                            The Derelict logo represents the beauty born of imperfection. Inspired by the word derelict, meaning abandoned.
+                            </p>`, 
+                        ['https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/70f874232166843.6896bb0abe7cd.png',
+                        'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0b7bfe232166843.6896bb0abf54f.png',
+                        'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/39adf8232166843.6896bb0abd118.png',
+                        'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/5fcc4e232166843.6896bb0abfc92.png',
+                        'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c01c3a232166843.6896bb0ac0172.png',
+                        'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/41cdde232166843.6896bb0abe1cd.png',
+                        'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/cf3e5f232166843.6896bb0abda13.png',  ]
+
+                            
+                    )">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/d824c2232166843.6896bb0abed5d.png" class="rounded-lg w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
+                        <h2 class="text-white text-xl font-bold">Derelict</h2>
+                        <p class="text-gray-300">Logo & Visual Identity</p>
+                    </div>
+                    </div>
+
+    <!-- CARD 2 -->
+                 <div class="relative cursor-pointer group"
+                onclick="openModal(
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/f58c14230606963.687999a2a6ebd.png', 
+                    'Plyne', 
+                    `<p style:'text-align: jusify;'>
+                        The Plyne logo features a modern and futuristic design, dominated by the color green, symbolizing technology and connectivity.
+                        The simple yet powerful geometric shape represents reliability and innovation in telecommunications solutions. This logo represents Plyne's
+                        vision to connect the world through efficient and cutting-edge communications technology, establishing Plyne as a trusted partner in delivering
+                        global connectivity.
+                        </p>`,
+                    ['https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/ced53f230606963.687999a2a6878.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/8d8244230606963.687999a2a5c1c.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/5d8e36230606963.687999a2a7398.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c44b61230606963.687999a2a79d1.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2dde9c230606963.687999a2a6179.png',]
+                    )">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/f58c14230606963.687999a2a6ebd.png" class="rounded-lg w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
+                    <h2 class="text-white text-xl font-bold">Plyne</h2>
+                    <p class="text-gray-300">Logo & Visual Identity</p>
+                </div>
+                </div>
+
+
+    <!-- CARD 2 -->
+                 <div class="relative cursor-pointer group"
+                onclick="openModal(
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2dd100232508205.689d888fece11.png', 
+                    'Rogo', 
+                    `<p style='text-text-align: justify;'>
+                        The Rogo logo is designed to represent the identity of a modern, progressive, and trustworthy real estate company.
+                        With its vibrant orange color scheme and clean, futuristic typography, the logo exudes professionalism, dynamism, and
+                        innovation. The unique 'R' shape reinforces a strong and recognizable brand image, making Rogo a leading choice in todays property industry.
+                        </p>`, 
+                    ['https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/897440232508205.689d888fedeaa.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2af638232508205.689d888febeb8.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/e7f850232508205.689d888fed31c.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/35d537232508205.689d888fed824.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/d6ae85232508205.689d888feeab7.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/d6ae85232508205.689d888feeab7.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/fc14cf232508205.689d888fec459.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/32b2cc232508205.689d888fec970.png',]
+                    )">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2dd100232508205.689d888fece11.png" class="rounded-lg w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
+                    <h2 class="text-white text-xl font-bold">Rogo</h2>
+                    <p class="text-gray-300">Realestate</p>
+                </div>
+        </div>
+
+    </div>            
+
+    <!-- Tambahkan card lainnya dengan parameter berbeda -->
+                </div>
+
+                <!-- MODAL -->
+                <div id="imageModal"
+                    class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
+                    <div class="bg-black max-w-screen-xl w-screen h-[100vh] rounded-lg overflow-y-auto relative">
+
+                    <!-- Tombol Close -->
+                    <button onclick="closeModal()"
+                        class="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl font-bold">
+                        &times;
+                    </button>
+
+                    <!-- Gambar utama -->
+                    <img id="modalImage" src="" class="w-full object-cover rounded-t-lg max-h-[50vh]">
+
+                    <!-- Konten dinamis -->
+                    <div class="p-4 space-y-4">
+                        <h2 id="modalTitle" class="text-2xl font-bold">Judul</h2>
+                        <p id="modalDescription" class="text-accent3 justify-center px-10 py-20">Deskripsi...</p>
+                        <div id="modalContent" class="space-y-4"></div>
+                    </div>
+                    </div>
+                </div>
+                                                
+                    </div>
+
+                                            
+
+                                            
+     </div>                       
+
+     <!-- LOGO -->
+
+    
+
+                                
+
+     
+     
+
+     <!--About Section-->
+    <!--<section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">ABOUT ME</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 animate-on-scroll">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gray-800 rounded-lg overflow-hidden">
+                            <div class="w-full h-full bg-accent2  flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="w-32 h-32 overflow-hidden rounded-full bg-gray-700 mx-auto mb-6 border-2 border-accent shadow-[0_0px_15px_rgba(209,255,108,0.5)]">
+                                        <img src="foto/idnfoto.png" alt="image" class="w-full h-full object cover">
+                                    </div>
+                                    <div class="text-xl text-accent1 font-medium">idn.dsg</div>
+                                    <div class="text-gray-400">Logo Designer & Visual Identity</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-accent rounded-lg"></div>-->
+                    </div>
+                </div>
+                <!--
+                <div class="md:w-1/2 animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-6">Crafting Visual Narratives</h3>
+                    <p class="text-gray-300 mb-6">
+                        With over 8 years of experience in the design industry, I specialize in creating compelling visual identities that resonate with audiences and elevate brands. My approach combines strategic thinking with aesthetic excellence to deliver solutions that are both beautiful and effective.
+                    </p>
+                    <p class="text-gray-300 mb-8">
+                        I believe in the power of minimalism - stripping away the unnecessary to reveal the essence of a brand. Every line, color, and shape serves a purpose in communicating your unique story.
+                    </p>
+                    <div class="tex-dark flex flex-wrap uppercase text-dark font-bold gap-4">
+                        <span class="px-4 py-2 bg-accent1 rounded-lg text-sm">Logo Design</span>
+                        <span class="px-4 py-2 bg-accent1 rounded-lg text-sm">Visual Identity</span>
+                        </div>
+                    <div class="flex space-x-5">
+                        <img src="LOGO/AI.png" alt="iamge" class="w-11 h-auto mt-5">
+                        <img src="LOGO/psd.png" alt="iamge" class="w-11 h-auto mt-5">
+                        <img src="LOGO/blender.png" alt="iamge" class="w-11 h-auto mt-5">
+                        </div>    
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Portfolio Section 
+    <section id="portfolio" class="py-20 bg-accent2">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">SELECTED WORK</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 
+                <div class="portfolio-item group animate-on-scroll">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <div class="bg-gray-800 aspect-square flex items-center justify-center">
+                            <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-full h-full"></div>
+                        </div>
+                        <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-bold mb-2">Nova Brand Identity</h3>
+                            <p class="text-gray-300 mb-4">Branding, Visual Identity</p>
+                            <div class="text-accent flex items-center">
+                                <span>View Project</span>
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 
+                <div class="portfolio-item group animate-on-scroll">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <div class="bg-gray-800 aspect-square flex items-center justify-center">
+                            <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-full h-full"></div>
+                        </div>
+                        <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-bold mb-2">Atlas UI Design</h3>
+                            <p class="text-gray-300 mb-4">User Interface, Experience</p>
+                            <div class="text-accent flex items-center">
+                                <span>View Project</span>
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 
+                <div class="portfolio-item group animate-on-scroll">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <div class="bg-gray-800 aspect-square flex items-center justify-center">
+                            <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-full h-full"></div>
+                        </div>
+                        <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-bold mb-2">Echo Magazine</h3>
+                            <p class="text-gray-300 mb-4">Editorial Design, Layout</p>
+                            <div class="text-accent flex items-center">
+                                <span>View Project</span>
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 
+                <div class="portfolio-item group animate-on-scroll">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <div class="bg-gray-800 aspect-square flex items-center justify-center">
+                            <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-full h-full"></div>
+                        </div>
+                        <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-bold mb-2">Lumen Packaging</h3>
+                            <p class="text-gray-300 mb-4">Packaging, Product Design</p>
+                            <div class="text-accent flex items-center">
+                                <span>View Project</span>
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 
+                <div class="portfolio-item group animate-on-scroll">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <div class="bg-gray-800 aspect-square flex items-center justify-center">
+                            <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-full h-full"></div>
+                        </div>
+                        <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-bold mb-2">Vertex Typography</h3>
+                            <p class="text-gray-300 mb-4">Type Design, Lettering</p>
+                            <div class="text-accent flex items-center">
+                                <span>View Project</span>
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 
+                <div class="portfolio-item group animate-on-scroll">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <div class="bg-gray-800 aspect-square flex items-center justify-center">
+                            <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-full h-full"></div>
+                        </div>
+                        <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-bold mb-2">Aura Brand Campaign</h3>
+                            <p class="text-gray-300 mb-4">Advertising, Art Direction</p>
+                            <div class="text-accent flex items-center">
+                                <span>View Project</span>
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-on-scroll">
+                <a href="#" class="inline-flex items-center text-accent group">
+                    <span class="mr-2">View Full Portfolio</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                </a>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Services Section 
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">CREATIVE SERVICES</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 
+                <div class="service-card bg-gray-900 rounded-lg p-8 transition-all duration-300 animate-on-scroll">
+                    <div class="w-14 h-14 rounded-full bg-accent bg-opacity-10 flex items-center justify-center mb-6">
+                        <i class="fas fa-pen-nib text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Brand Identity</h3>
+                    <p class="text-gray-300 mb-4">
+                        Comprehensive brand development including logo design, visual systems, and brand guidelines.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>Logo & Identity Systems</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>Brand Guidelines</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>Visual Language Development</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 
+                <div class="service-card bg-gray-900 rounded-lg p-8 transition-all duration-300 animate-on-scroll">
+                    <div class="w-14 h-14 rounded-full bg-accent bg-opacity-10 flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Digital Design</h3>
+                    <p class="text-gray-300 mb-4">
+                        Engaging digital experiences including websites, apps, and interactive interfaces.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>UI/UX Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>Web & Mobile Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>Interactive Prototypes</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 
+                <div class="service-card bg-gray-900 rounded-lg p-8 transition-all duration-300 animate-on-scroll">
+                    <div class="w-14 h-14 rounded-full bg-accent bg-opacity-10 flex items-center justify-center mb-6">
+                        <i class="fas fa-book-open text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Print & Editorial</h3>
+                    <p class="text-gray-300 mb-4">
+                        Thoughtful print design for publications, packaging, and marketing materials.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>Editorial Layout</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>Packaging Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2 text-sm"></i>
+                            <span>Marketing Collateral</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+            <section id="contact" class="py-24 h-screen mt-60">
+                <div class="text-center max-w-screen-xl mx-auto border rounded-3xl border-gray-600 mx-4 py-10 space-y-6">
+                    <h1 class=" md:text-2xl font-light mb-7 ">
+                    Want to create something awesome?
+                    </h1>
+                    <a href="mailto:hexa.std@gmail.com" class="text-3x1 font-light text-accent3 md:text-2xl py-80 hover:text-gray-300 transition">
+                     → idn.dsg99@gmail.com
+                    </a>
+                    <div class=" flex justify-center">
+                    <p class="text-sm rounded-xl bg-accent2 w-[80vh] flex justify-center md:text-base mx-auto mx-4 text-gray-400 px-1 pt-5 pb-5 mb-10">
+                    Contact us for subscription-based branding solutions → idn.dsg99@gmail.com</p>
+                    </div>
+                    </div>
+                
+                <div class="text-center mt-20 animate-on-scroll">
+                    <h3 class="text-lg font-regular pt-10">Follow My Work</h3>
+                    <div class="flex justify-center pt-5 space-x-6">
+                        <a href="https://www.behance.net/indradwinugroho99" class="text-gray-400 hover:text-agreen transition-colors duration-300">
+                            <i class="fab fa-behance text-xl"></i>
+                        </a>
+                        <a href="https://dribbble.com/indra-dwi-nugroho" class="text-gray-400 hover:text-agreen transition-colors duration-300">
+                            <i class="fab fa-dribbble text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/idn.dsg/" class="text-gray-400 hover:text-agreen  transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <!--<a href="#" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>-->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-gray-800">
+        <div class="container max-w-screen-xl justify-center mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-accent text-xl font-bold mb-4 md:mb-0">idn.dsg<span class="text-white">.</span></div>
+                <div class="text-gray-400 text-sm">
+                    © 2023 idn.dsg. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('hamburger-active');
+            mobileNav.classList.toggle('translate-y-full');
+            mobileNav.classList.toggle('translate-y-0');
+        });
+        
+        // Close mobile nav when clicking a link
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('hamburger-active');
+                mobileNav.classList.add('translate-y-full');
+                mobileNav.classList.remove('translate-y-0');
+            });
+        });
+        
+        // Header show/hide on scroll
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.classList.add('nav-hidden');
+            } else {
+                // Scrolling up
+                header.classList.remove('nav-hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Show header on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                header.classList.remove('nav-hidden');
+            }, 500);
+        });
+        
+        // Scroll animation for elements
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
