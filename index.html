@@ -1,221 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>idn.dsg | Visual Identity</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- <link rel="stylesheet" href="idndsg.css">-->
-    <link rel="icon" type="image/png" href="LOGO/favicon.png">
+    <link rel="icon" type="image/png" href="LOGO/favicon.png" />
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap">
-   
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300..700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dark: '#000000',
-                        whiate: '#ffffff',
-                        agreen: '#d1ff6c',
-                        accent1: '#fff5ed',
-                        accent2: '#161413',
-                        accent3: '#cccccc',
-                    },
-                    fontFamily: {
-                        sans: ['Space Grotesk', 'sans-serif']
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dark: "#000000",
+              whitesusu: "#e8e5d9",
+              agreen: "#d1ff6c",
+              black1: "#101110",
+              green1: "#d0ea63",
+              accent2: "#161413",
+              accent3: "#cccccc",
+            },
+            fontFamily: {
+              sans: ["Space Grotesk", "sans-serif"],
+              bebas: ["Bebas Neue", "sans-serif"],
+            },
+            animation: {
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              float: "float 6s ease-in-out infinite",
+              "loop-scroll": "loop-scroll 90s linear infinite",
+              marquee: "marquee 80s linear infinite",
+            },
+            keyframes: {
+              "loop-scroll": {
+                from: { transform: "translateX(0)" },
+                to: { transform: "translateX(-100%)" },
+              }, // Tambahkan koma di sini
+              marquee: {
+                "0%": { transform: "translateX(0)" },
+                "100%": { transform: "translateX(-50%)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+            },
+          },
+        },
+      };
     </script>
-   
+
     <style>
-        body {
-            scroll-behavior: smooth;
-            font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-        }
-        .nav-hidden {
-            transform: translateY(-100%);
-        }
-        .portfolio-item {
-            transition: all 0.4s ease;
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
-        }
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 0 1px #d1ff6c;
-        }
-        .portfolio-overlay {
-            background: rgba(26,26,26,0.85);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-        }
-        .contact-input:focus {
-            box-shadow: 0 0 0 2px #d1ff6c;
-        }
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .hamburger-line {
-            transition: all 0.3s ease;
-        }
-        .hamburger-active .hamburger-line:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        .hamburger-active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger-active .hamburger-line:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
+      body {
+        scroll-behavior: smooth;
+        font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+      }
+      .animate-marquee:hover {
+        animation-play-state: paused;
+      }
+
+      .nav-hidden {
+        transform: translateY(-100%);
+      }
+      .portfolio-item {
+        transition: all 0.4s ease;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+      }
+      .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 0 1px #d1ff6c;
+      }
+      .portfolio-overlay {
+        background: rgba(26, 26, 26, 0.85);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .contact-input:focus {
+        box-shadow: 0 0 0 2px #d1ff6c;
+      }
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hamburger-line {
+        transition: all 0.3s ease;
+      }
+      .hamburger-active .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger-active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger-active .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      /* Menghilangkan scrollbar untuk Chrome, Safari dan Opera */
+      #imageModal .overflow-y-auto::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Menghilangkan scrollbar untuk IE, Edge dan Firefox */
+      #imageModal .overflow-y-auto {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
     </style>
-    
-</head>
-<body class="bg-dark font-space overflow-x-hidden">
+
     <!-- Header with Navigation -->
-    <header class="fixed w-full z-50 transition-all duration-300 bg-dark nav-hidden" id="header">
-        <div class="w-full mx-auto px-10 py-4 flex justify-between items-center">
-            <div class="logo mt-5 w-40 w-[150px] h-auto"><img src="LOGO/idnlogo.png" alt="logo"></div>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:block">
-                <ul class="flex space-x-8 text-xl mt-8">
-                    
-                    <li><a href="#about" class="text-accent1 hover:text-accent transition-colors duration-300">Project</a></li>
-                    <li><a href="#portfolio" class="text-accent1 hover:text-accent transition-colors duration-300">Contact</a></li>
-                    <li><a href="#services" class="text-white hover:text-accent transition-colors duration-300">Services</a></li>
-                    <li><a href="#contact" class="text-white hover:text-accent transition-colors duration-300">Contact</a></li>
-                    
-                </ul>
-            </nav>
-            
-            <!-- Mobile Hamburger -->
-            <button id="hamburger" class="md:hidden flex flex-col space-y-1.5 z-50">
-                <span class="hamburger-line w-6 h-px bg-white"></span>
-                <span class="hamburger-line w-6 h-px bg-white"></span>
-                <span class="hamburger-line w-6 h-px bg-white"></span>
-            </button>
+    <header
+      class="fixed w-full z-50 transition-all duration-300 bg-dark bg-opacity-30 backdrop-blur-sm nav-hidden"
+      id="header"
+    >
+      <div
+        class="container max-w-[1850px] mx-auto px-2 md:px-0 py-4 flex justify-between items-center"
+      >
+        <div class="logo mt-5 w-40 w-[145px] h-auto">
+          <img src="LOGO/idnlogo.png" alt="logo" />
         </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:block">
+          <ul class="flex space-x-8 text-xl mt-8">
+            <li>
+              <a
+                href="#about"
+                class="text-white hover:text-green1 transition-colors duration-300"
+                >Work</a
+              >
+            </li>
+            <li>
+              <a
+                href="#portfolio"
+                class="text-white hover:text-green1 transition-colors duration-300"
+                >Logo</a
+              >
+            </li>
+            <li>
+              <a
+                href="#services"
+                class="text-white hover:text-green1 transition-colors duration-300"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="text-white hover:text-green1 transition-colors duration-300"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="text-white hover:text-green1 transition-colors duration-300"
+                >Shop</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Hamburger -->
+        <button
+          id="hamburger"
+          class="md:hidden flex flex-col space-y-1.5 z-50 mt-6 mr-4"
+        >
+          <span class="hamburger-line w-6 h-px bg-white"></span>
+          <span class="hamburger-line w-6 h-px bg-white"></span>
+          <span class="hamburger-line w-6 h-px bg-white"></span>
+        </button>
+      </div>
     </header>
 
-         <!-- Mobile Navigation -->
-        <div id="mobile-nav" class="fixed inset-0 bg-dark z-40 flex items-center justify-center transform translate-y-full transition-transform duration-300">
-            <ul class="text-center space-y-8">
-                <li><a href="#about" class="text-2xl text-gray-300 hover:text-accent transition-colors duration-300">About</a></li>
-                <li><a href="#portfolio" class="text-2xl text-gray-300 hover:text-accent transition-colors duration-300">Portfolio</a></li>
-                <li><a href="#services" class="text-2xl text-gray-300 hover:text-accent transition-colors duration-300">Services</a></li>
-                <li><a href="#contact" class="text-2xl text-gray-300 hover:text-accent transition-colors duration-300">Contact</a></li>
-            </ul>
-        </div>   
+    <!-- Mobile Navigation -->
+    <div
+      id="mobile-nav"
+      class="fixed inset-0 bg-dark z-40 h-[600px] flex items-right justify-start transform -translate-y-full transition-transform duration-300"
+    >
+      <ul
+        class="container max-w-[1000px] mx-auto h-auto text-left text-3xl px-2 mt-28 py-10 space-y-8"
+      >
+        <li>
+          <a
+            href="#about"
+            class="text-white hover:text-green1 transition-colors duration-300"
+            >Work</a
+          >
+        </li>
+        <li>
+          <a
+            href="#portfolio"
+            class="text-white hover:text-green1 transition-colors duration-300"
+            >Logo</a
+          >
+        </li>
+        <li>
+          <a
+            href="#services"
+            class="text-white hover:text-green1 transition-colors duration-300"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="text-white hover:text-green1 transition-colors duration-300"
+            >Contact</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="text-white hover:text-green1 transition-colors duration-300"
+            >Shop</a
+          >
+        </li>
+      </ul>
+    </div>
+  </head>
 
+  <body class="bg-dark border-2 border-yellow-500 font-space overflow-x-hidden">
     <!-- Hero Section -->
-    <section class="w-full mx-auto mb-40 pt-32 flex items-center relative">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-20 right-20 w-64 h-64 rounded-full bg-accent opacity-10 blur-3xl animate-pulse-slow"></div>
-            <div class="absolute bottom-10 left-10 w-80 h-80 rounded-full bg-accent opacity-5 blur-3xl animate-float"></div>
-        </div>
-        
-        <div class="font-bold w-full mx-auto flex justify-between px-9 py-2 z-10">
-            <div class="max-w-3xl text-center">
-                <h1 class="text-5xl md:text-6xl text-left animate-on-scroll text-white">
-                    Crafting Distinctive Visual Identities for Exceptional Brands.
-                </h1>
-                <!--
-                <div class="flex justify-center mt-10 animate-on-scroll">
-                    <a href="#portfolio" class="px-8 py-3 bg-accent1 text-dark font-bold rounded-lg hover:bg-opacity-90 transition-colors duration-300">
-                        Contact
-                    </a>
-                </div>
-            </div>-->
-        </div>
-        
-        <!-- pop up dropdownd -->
-        <!--
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#about" class="text-gray-400 hover:text-accent transition-colors">
-                <i class="fas fa-chevron-down text-2xl"></i>
+    <section
+      class="container max-w-[1850px] fixed grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 w-full mx-auto sm:mb-20 pt-32 sm:pt-48 px-2 md:px-0 items-center relative"
+    >
+      <div class="font-bold flex justify-between z-10">
+        <div class="max-w-3xl text-center">
+          <h1
+            class="text-5xl md:text-6xl text-left animate-on-scroll text-white"
+          >
+            Crafting Distinctive Visual Identities for Exceptional Brands.
+          </h1>
+          <div class="w-full flex justify-between mt-6 animate-on-scroll">
+            <a
+              href="#portfolio"
+              class="px-4 py-4 pt-5 bg-white text-dark text-2xl md:text-3xl font-bebas hover:bg-green1 transition-colors duration-300"
+            >
+              work with me
             </a>
-        </div>-->
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="container max-w-[1850px] border-2 mx-auto h-full px-2 py-4 flex justify-between items-center"
+      >
+        <div
+          class="absolute top-20 right-20 w-64 h-64 rounded-full bg-accent opacity-10 blur-3xl animate-pulse-slow"
+        ></div>
+        <div
+          class="absolute bottom-10 left-10 w-80 h-80 rounded-full bg-accent opacity-5 blur-3xl animate-float"
+        ></div>
+      </div>
+
+      <!-- pop up dropdownd -->
+      <div>
+        <a
+          href="#about"
+          class="text-gray-400 hover:text-accent transition-colors"
+        >
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+      </div>
     </section>
 
+    <section>
+      <!-- Logos Marquee -->
+      <div class="container max-w-[1850px] mx-auto px-2 py-20 md:px-0">
+        <div class="text-right">
+          <h2 class="text-3xl md:text-5xl font-bebas text-green1">
+            BRANDS I HAVE WORKED WITH
+          </h2>
+        </div>
+      </div>
+      <div
+        class="container max-w-[1850px] mx-auto bg-black1 flex w-screen overflow-hidden py-20 group"
+      >
+        <div
+          class="flex space-x-8 md:space-x-16 animate-loop-scroll group-hover:paused px-8"
+        >
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 1"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 2"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 3"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 4"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 5"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 1"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 2"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 3"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 4"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 5"
+          />
+        </div>
+
+        <div
+          class="flex space-x-8 animate-loop-scroll group-hover:paused px-8"
+          aria-hidden="true"
+        >
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 1"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 2"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 3"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 4"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 5"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 1"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 2"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 3"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 4"
+          />
+          <img
+            src="Logo berjalan/aiotsystems.png"
+            class="max-w-none h-12"
+            alt="Logo 5"
+          />
+        </div>
+      </div>
+    </section>
 
     <!-- GALERY -->
 
-
     <!-- Grid -->
-     <div class="flex justify-center">
-                <script defer>
-                            function openModal(imageSrc, title, description, extraImages = []) {
-                            // Ganti gambar utama
-                            document.getElementById('modalImage').src = imageSrc;
+    <div class="flex justify-center">
+      <script defer>
+        function openModal(imageSrc, title, description, extraImages = []) {
+          // Ganti gambar utama
+          document.getElementById("modalImage").src = imageSrc;
 
-                            // Ganti judul dan deskripsi
-                            document.getElementById('modalTitle').innerText = title;
-                            document.getElementById('modalDescription').innerHTML = description;
+          // Ganti judul dan deskripsi
+          document.getElementById("modalTitle").innerText = title;
+          document.getElementById("modalDescription").innerHTML = description;
 
-                            // Kosongkan isi sebelumnya
-                            const contentDiv = document.getElementById('modalContent');
-                            contentDiv.innerHTML = '';
+          // Kosongkan isi sebelumnya
+          const contentDiv = document.getElementById("modalContent");
+          contentDiv.innerHTML = "";
 
-                            // Tambahkan gambar tambahan
-                            extraImages.forEach(src => {
-                                const img = document.createElement('img');
-                                img.src = src;
-                                img.className = 'shadow w-full my-4';
-                                contentDiv.appendChild(img);
-                            });
+          // Tambahkan gambar tambahan
+          extraImages.forEach((src) => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.className = "shadow w-full my-4";
+            contentDiv.appendChild(img);
+          });
 
-                            // Tampilkan modal
-                            document.getElementById('imageModal').classList.remove('hidden');
-                            }
+          // Tampilkan modal
+          document.getElementById("imageModal").classList.remove("hidden");
+        }
 
-                            function closeModal() {
-                            document.getElementById('imageModal').classList.add('hidden');
-                            }
-            </script>
-            <script src="https://cdn.tailwindcss.com"></script> <!-- Gunakan jika pakai Tailwind -->
-</head>
+        function closeModal() {
+          document.getElementById("imageModal").classList.add("hidden");
+        }
+      </script>
 
-<body class="bg-gray-100 p-10">
-    <div class="w-full mx-auto px-9">
-                    <div class="text-left mb-12">
-                    <h2 class="text-2xl font-light text-agreen">Feature Work</h2>
-                    <!--
-                    <p class="text-gray-400 mt-2">Selected projects & highlights</p> -->
-                    </div>
+      <div
+        class="container max-w-[1850px] mx-auto w-full h-full py-10 px-2 md:px-0"
+      >
+        <div class="text-left mb-12">
+          <h2 class="text-3xl md:text-5xl font-bebas text-green1">MyWork</h2>
+          <!--
+                        <p class="text-gray-400 mt-2">Selected projects & highlights</p> -->
+        </div>
 
-  <!-- CARD 1 -->
+        <!-- CARD GATE VEST -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div
+            class="relative cursor-pointer group"
+            onclick="openModal(
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/9ddb16204280539.66a668c3ea087.png', 
+                    'Rogo', 
+                    `<p style='text-text-align: justify;'>
+                        The Rogo logo is designed to represent the identity of a modern, progressive, and trustworthy real estate company.
+                        With its vibrant orange color scheme and clean, futuristic typography, the logo exudes professionalism, dynamism, and
+                        innovation. The unique 'R' shape reinforces a strong and recognizable brand image, making Rogo a leading choice in todays property industry.
+                        </p>`, 
+                    ['https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9b36b4204280539.66a668c3e91a1.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/600718204280539.66a668c3e7ff9.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/304550204280539.66a668c3e8c86.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/d965fd204280539.66a668c3ea917.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/7d3542204280539.66a668c3e983f.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/595173204280539.66a668c3e86f8.png',]
+                    )"
+          >
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/9ddb16204280539.66a668c3ea087.png"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4"
+            >
+              <h2 class="text-white text-xl font-bold">GateVest</h2>
+              <p class="text-gray-300">Invesment</p>
+            </div>
+          </div>
 
-        <!-- CARD Unme  -->
-                 <div class="relative cursor-pointer group"
-                onclick="openModal(
+          <!-- CARD Unme  -->
+          <div
+            class="relative cursor-pointer group object-cover"
+            onclick="openModal(
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c79660232529347.689ddb8d5489f.png', 
                     'Unme', 
                     `<p style='text-align: jusify;'>
@@ -239,19 +518,24 @@
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/84aa46232529347.689ddb8d53adb.png',
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/5cd322232529347.689ddb8d542c5.png',
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/beeb30232529347.689ddb8d535bc.png',]
-                    )">
+                    )"
+          >
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c79660232529347.689ddb8d5489f.png"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4"
+            >
+              <h2 class="text-white text-xl font-bold">unme</h2>
+              <p class="text-gray-300">Visual Identity</p>
+            </div>
+          </div>
 
-
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c79660232529347.689ddb8d5489f.png" class=" w-full h-64 object-cover">
-                <div class="absolute inset-0 bg-black/40 rounded- opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
-                    <h2 class="text-white text-xl font-bold">unme</h2>
-                    <p class="text-gray-300">Visual Identity</p>
-                </div>
-                </div>
-
-        <!-- CARD Derilect-->
-                    <div class="relative cursor-pointer group"
-                    onclick="openModal(
+          <!-- CARD Derilect-->
+          <div
+            class="relative cursor-pointer group"
+            onclick="openModal(
                         'https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/d824c2232166843.6896bb0abed5d.png', 
                         'Derelict', 
                         `<p style='text:text-align: justify;'>
@@ -266,17 +550,24 @@
                         'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/cf3e5f232166843.6896bb0abda13.png',  ]
 
                             
-                    )">
-                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/d824c2232166843.6896bb0abed5d.png" class=" w-full h-64 object-cover">
-                    <div class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
-                        <h2 class="text-white text-xl font-bold">Derelict</h2>
-                        <p class="text-gray-300">Logo & Visual Identity</p>
-                    </div>
-                    </div>
+                    )"
+          >
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/d824c2232166843.6896bb0abed5d.png"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4"
+            >
+              <h2 class="text-white text-xl font-bold">Derelict</h2>
+              <p class="text-gray-300">Logo & Visual Identity</p>
+            </div>
+          </div>
 
-    <!-- CARD 2 -->
-                 <div class="relative cursor-pointer group"
-                onclick="openModal(
+          <!-- CARD 2 -->
+          <div
+            class="relative cursor-pointer group"
+            onclick="openModal(
                     'https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/f58c14230606963.687999a2a6ebd.png', 
                     'Plyne', 
                     `<p style:'text-align: jusify;'>
@@ -290,18 +581,24 @@
                     'https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/5d8e36230606963.687999a2a7398.png',
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c44b61230606963.687999a2a79d1.png',
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2dde9c230606963.687999a2a6179.png',]
-                    )">
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/f58c14230606963.687999a2a6ebd.png" class=" w-full h-64 object-cover">
-                <div class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
-                    <h2 class="text-white text-xl font-bold">Plyne</h2>
-                    <p class="text-gray-300">Logo & Visual Identity</p>
-                </div>
-                </div>
+                    )"
+          >
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/f58c14230606963.687999a2a6ebd.png"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4"
+            >
+              <h2 class="text-white text-xl font-bold">Plyne</h2>
+              <p class="text-gray-300">Logo & Visual Identity</p>
+            </div>
+          </div>
 
-
-    <!-- CARD 2 -->
-                 <div class="relative cursor-pointer group"
-                onclick="openModal(
+          <!-- CARD 2 -->
+          <div
+            class="relative cursor-pointer group"
+            onclick="openModal(
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2dd100232508205.689d888fece11.png', 
                     'Rogo', 
                     `<p style='text-text-align: justify;'>
@@ -317,182 +614,368 @@
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/d6ae85232508205.689d888feeab7.png',
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/fc14cf232508205.689d888fec459.png',
                     'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/32b2cc232508205.689d888fec970.png',]
-                    )">
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2dd100232508205.689d888fece11.png" class=" w-full h-64 object-cover">
-                <div class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
-                    <h2 class="text-white text-xl font-bold">Rogo</h2>
-                    <p class="text-gray-300">Realestate</p>
-                </div>
+                    )"
+          >
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2dd100232508205.689d888fece11.png"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4"
+            >
+              <h2 class="text-white text-xl font-bold">Rogo</h2>
+              <p class="text-gray-300">Realestate</p>
+            </div>
+          </div>
+          <!-- CARD 2 -->
+          <div
+            class="relative cursor-pointer group"
+            onclick="openModal(
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/403079198384085.66409dfe6d2ff.png', 
+                    'Rogo', 
+                    `<p style='text-text-align: justify;'>
+                        The Rogo logo is designed to represent the identity of a modern, progressive, and trustworthy real estate company.
+                        With its vibrant orange color scheme and clean, futuristic typography, the logo exudes professionalism, dynamism, and
+                        innovation. The unique 'R' shape reinforces a strong and recognizable brand image, making Rogo a leading choice in todays property industry.
+                        </p>`, 
+                    ['https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/897440232508205.689d888fedeaa.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2af638232508205.689d888febeb8.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/e7f850232508205.689d888fed31c.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/35d537232508205.689d888fed824.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/d6ae85232508205.689d888feeab7.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/d6ae85232508205.689d888feeab7.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/fc14cf232508205.689d888fec459.png',
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/32b2cc232508205.689d888fec970.png',]
+                    )"
+          >
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/403079198384085.66409dfe6d2ff.png"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4"
+            >
+              <h2 class="text-white text-xl font-bold">Rogo</h2>
+              <p class="text-gray-300">Realestate</p>
+            </div>
+          </div>
         </div>
 
-    </div>            
+        <!-- Tambahkan card lainnya dengan parameter berbeda -->
 
-    <!-- Tambahkan card lainnya dengan parameter berbeda -->
-                </div>
+        <!-- MODAL -->
+        <div
+          id="imageModal"
+          class="hidden fixed inset-0 bg-black bg-dark z-50 flex items-center justify-center"
+        >
+          <div
+            class="bg-black max-w-[1600px] h-full w-screen overflow-y-auto relative"
+          >
+            <!-- Tombol Close -->
+            <button
+              onclick="closeModal()"
+              class="container max-w-[1600px] mx-auto fixed text-white hover:text-green1 text-5xl text-right px-10 pt-5 md:text-7xl font-medium"
+            >
+              &times;
+            </button>
 
-                <!-- MODAL -->
-                <div id="imageModal"
-                    class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
-                    <div class="bg-black max-w-screen-xl w-screen h-[100vh]  overflow-y-auto relative">
+            <!-- Gambar utama -->
+            <img id="modalImage" src="" class="w-full object-cover" />
 
-                    <!-- Tombol Close -->
-                    <button onclick="closeModal()"
-                        class="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl font-bold">
-                        &times;
-                    </button>
+            <!-- Konten dinamis -->
+            <div class="p-4 space-y-4">
+              <h2 id="modalTitle" class="text-2xl font-bold">Judul</h2>
+              <p
+                id="modalDescription"
+                class="text-accent3 justify-center px-10 py-20"
+              >
+                Deskripsi...
+              </p>
+              <div id="modalContent" class="space-y-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                    <!-- Gambar utama -->
-                    <img id="modalImage" src="" class="w-full object-cover  max-h-[50vh]">
+    <!-- Porto -->
 
-                    <!-- Konten dinamis -->
-                    <div class="p-4 space-y-4">
-                        <h2 id="modalTitle" class="text-2xl font-bold">Judul</h2>
-                        <p id="modalDescription" class="text-accent3 justify-center px-10 py-20">Deskripsi...</p>
-                        <div id="modalContent" class="space-y-4"></div>
-                    </div>
-                    </div>
-                </div>
-                                                
-                    </div>
+    <section
+      id="bio"
+      class="container max-w-[1850px] mx-auto bg-dark px-2 md:px-0 h-full grid md:grid-cols-2 gap-12 py-10"
+    >
+      <div class="justify-center">
+        <!-- Bio -->
+        <div>
+          <h2 class="text-3xl md:text-5xl mx-0 font-bebas text-green1 mb-6">
+            About Me
+          </h2>
+          <div
+            class="flex flex-col space-y-4 text-lg md:text-xl text-accent3 text-justify leading-relaxed"
+          >
+            <p>
+              I'm Indra, a brand designer specializing in logos and visual
+              identities from Indonesia. For over 5 years, I've helped brands
+              build bold, strategic, and distinctive identities—for those who
+              don't want to look like everyone else.
+            </p>
+            <p>
+              I work with purpose-driven brands, visionary startups, and
+              individuals with progressive mindsets who want to stand out
+              authentically, not just follow trends.
+            </p>
+            <p>
+              Whether you're building a brand from scratch or redefining an
+              existing identity, I combine creative strategy, a strong visual
+              system, and meaningful storytelling to create an identity that is
+              relevant, memorable, and has a lasting impact.
+            </p>
+          </div>
+        </div>
 
-                                            
+        <!-- Bio Data -->
+        <div class="space-y-4 mt-20 md:mt-20 text-lg">
+          <p class="text-white">
+            <span class="text-accent3">Location:</span> Indonesia
+          </p>
+          <p class="text-white">
+            <span class="text-accent3">Experience:</span> 5+ Years
+          </p>
+          <p class="text-white">
+            <span class="text-accent3">Specialty:</span> Logo & Visual Identity
+          </p>
+          <p class="text-white">
+            <span class="text-accent3">Availability:</span> Open for projects
+          </p>
+        </div>
+      </div>
 
-                                            
-     </div>                       
-
-     
-                    </div>
-                </div>
-               
+      <!-- FOTO -->
+      <div class="relative items-center justify-top max-w-screen-xl" text->
+        <img src="FOTO/IMG_8872.JPG" alt="" class="mx-auto" />
+      </div>
+    </section>
 
     <!-- Contact Section -->
-            <section id="contact" class="py-24 h-screen mt-60">
-                <div class="text-center max-w-screen-xl mx-auto border rounded-3xl border-gray-600 mx-4 py-10 space-y-6">
-                    <h1 class=" md:text-2xl font-light mb-7 ">
-                    Want to create something awesome?
-                    </h1>
-                    <a href="mailto:hexa.std@gmail.com" class="text-3x1 font-light text-accent3 md:text-2xl py-80 hover:text-gray-300 transition">
-                     → idn.dsg99@gmail.com
-                    </a>
-                    <div class=" flex justify-center">
-                    <p class="text-sm rounded-xl bg-accent2 w-[80vh] flex justify-center md:text-base mx-auto mx-4 text-gray-400 px-1 pt-5 pb-5 mb-10">
-                    Contact us for subscription-based branding solutions → idn.dsg99@gmail.com</p>
-                    </div>
-                    </div>
-                
-                <div class="text-center mt-20 animate-on-scroll">
-                    <h3 class="text-lg font-regular pt-10">Follow My Work</h3>
-                    <div class="flex justify-center pt-5 space-x-6">
-                        <a href="https://www.behance.net/indradwinugroho99" class="text-gray-400 hover:text-agreen transition-colors duration-300">
-                            <i class="fab fa-behance text-xl"></i>
-                        </a>
-                        <a href="https://dribbble.com/indra-dwi-nugroho" class="text-gray-400 hover:text-agreen transition-colors duration-300">
-                            <i class="fab fa-dribbble text-xl"></i>
-                        </a>
-                        <a href="https://www.instagram.com/idn.dsg/" class="text-gray-400 hover:text-agreen  transition-colors duration-300">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                        <!--<a href="#" class="text-gray-400 hover:text-accent transition-colors duration-300">
-                            <i class="fab fa-linkedin-in text-xl"></i>-->
-                        </a>
-                    </div>
-                </div>
+    <section
+      id="contact"
+      class="container max-w-[1850px] mx-auto border-2 border-yellow-500 grid grid-cols-1 md:grid-cols-2 gap-6 py-20 px-2 md:px-0 h-auto"
+    >
+      <!-- LEFT IMAGE -->
+      <div class="border-2 border-yellow-500">
+        <img
+          src="your-image.jpg"
+          alt="Studio"
+          class="w-full h-auto object-cover"
+        />
+      </div>
+      <div
+        class="w-full border-2 border-yellow-500 mx-auto px-6 lg:grid-cols-2 gap-16 items-start"
+      >
+        <!-- RIGHT CONTENT -->
+        <div>
+          <h2
+            class="font-bebas text-green1 text-3xl md:text-5xl font-extrabold uppercase leading-tight"
+          >
+            Let’s Work<br />Together
+          </h2>
+
+          <p class="mt-6 text-accent3 max-w-md">
+            Are you ready to make something amazing together? Please fill out
+            the form to arrange a “Say Hello Chat” and we can talk about your
+            project. I typically reply within 48 hours.
+          </p>
+
+          <!-- FORM -->
+          <form class="mt-10 space-y-6">
+            <div>
+              <label class="block text-sm text-accent3 font-medium mb-1"
+                >Name</label
+              >
+              <input
+                type="text"
+                class="w-full border border-black px-3 py-2 focus:outline-none"
+              />
             </div>
+
+            <div>
+              <label class="block text-sm text-accent3 font-medium mb-1"
+                >Email</label
+              >
+              <input
+                type="email"
+                class="w-full border border-black px-3 py-2 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm text-accent3 font-medium mb-1">
+                Brand / Product Name
+              </label>
+              <input
+                type="text"
+                class="w-full border border-black px-3 py-2 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm text-accent3 font-medium mb-1">
+                Estimated Deadline
+              </label>
+              <select
+                class="w-full font-medium text-accent3 border border-black px-3 py-2 focus:outline-none"
+              >
+                <option>&lt; 1 Month</option>
+                <option>1–3 Months</option>
+                <option>3+ Months</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm text-accent3 font-medium mb-1">
+                Estimated Budget
+              </label>
+              <select
+                class="w-full font-medium text-accent3 px-3 py-2 focus:outline-none bg-white"
+              >
+                <option>£3000 – £5000</option>
+                <option>£5000 – £10,000</option>
+                <option>£10,000+</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm text-accent3 font-medium mb-1">
+                How did you find me?
+              </label>
+              <select
+                class="w-full border border-black font-medium text-accent3 hover:text-dark px-3 py-2 focus:outline-none"
+              >
+                <option>Instagram</option>
+                <option>Behance</option>
+                <option>Website</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm text-accent3 font-medium mb-1">
+                Brief Project Description
+              </label>
+              <textarea
+                rows="4"
+                class="w-full border border-black px-3 py-2 focus:outline-none"
+              ></textarea>
+            </div>
+
+            <!-- SUBMIT -->
+            <button
+              type="submit"
+              class="bg-white font-bebas font-bold text-4xl text-dark px-4 pt-4 pb-3 hover:bg-green1"
+            >
+              Submit
+            </button>
+          </form>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 border-t border-gray-800">
-        <div class="container max-w-screen-xl justify-center mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-accent text-xl font-bold mb-4 md:mb-0">idn.dsg<span class="text-white">.</span></div>
-                <div class="text-gray-400 text-sm">
-                    © 2023 idn.dsg. All rights reserved.
-                </div>
-            </div>
+    <footer
+      class="container max-w-[1850px] mx-auto flex w-auto py-10 px-2 md:px-0 border-2"
+    >
+      <div class="w-full border-2 justify-center">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="text-white text-xl font-bebas mb-4 md:mb-0">
+            idn.dsg<span class="text-white">.</span>
+          </div>
+          <div class="text-white text-sm">
+            © 2023 idn.dsg. All rights reserved.
+          </div>
         </div>
+      </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobile-nav');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('hamburger-active');
-            mobileNav.classList.toggle('translate-y-full');
-            mobileNav.classList.toggle('translate-y-0');
+      // Mobile Navigation Toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileNav = document.getElementById("mobile-nav");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("hamburger-active");
+        mobileNav.classList.toggle("-translate-y-full");
+        mobileNav.classList.toggle("translate-y-0");
+      });
+
+      // Close mobile nav when clicking a link
+      document.querySelectorAll("#mobile-nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("hamburger-active");
+          mobileNav.classList.add("translate-y-full");
+          mobileNav.classList.remove("translate-y-0");
         });
-        
-        // Close mobile nav when clicking a link
-        document.querySelectorAll('#mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('hamburger-active');
-                mobileNav.classList.add('translate-y-full');
-                mobileNav.classList.remove('translate-y-0');
+      });
+
+      // Header show/hide on scroll
+      let lastScrollTop = 0;
+      const header = document.getElementById("header");
+
+      window.addEventListener("scroll", () => {
+        let scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down
+          header.classList.add("nav-hidden");
+        } else {
+          // Scrolling up
+          header.classList.remove("nav-hidden");
+        }
+
+        lastScrollTop = scrollTop;
+      });
+
+      // Show header on page load
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          header.classList.remove("nav-hidden");
+        }, 500);
+      });
+
+      // Scroll animation for elements
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
             });
+          }
         });
-        
-        // Header show/hide on scroll
-        let lastScrollTop = 0;
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
-                header.classList.add('nav-hidden');
-            } else {
-                // Scrolling up
-                header.classList.remove('nav-hidden');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-        
-        // Show header on page load
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                header.classList.remove('nav-hidden');
-            }, 500);
-        });
-        
-        // Scroll animation for elements
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
